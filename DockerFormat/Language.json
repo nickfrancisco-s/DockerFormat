@@ -47,6 +47,10 @@
 				"Help": "Deploy a new stack or update an existing stack"
 			},
 			{
+				"Name": "docker",
+				"Help": "Prefixes all commands"
+			},
+			{
 				"Name": "diff",
 				"Help": "Inspect changes to files or directories on a container’s filesystem"
 			},

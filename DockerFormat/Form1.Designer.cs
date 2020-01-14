@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.Right_RichTB = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.PasteLeftButton = new System.Windows.Forms.Button();
+            this.Smaller_Button = new System.Windows.Forms.Button();
+            this.Bigger_Button = new System.Windows.Forms.Button();
             this.CopyLeftButton = new System.Windows.Forms.Button();
+            this.PasteLeftButton = new System.Windows.Forms.Button();
+            this.CopyRightButton = new System.Windows.Forms.Button();
+            this.PasteRightButton = new System.Windows.Forms.Button();
             this.RefreshLeftButton = new System.Windows.Forms.Button();
             this.RefreshRightButton = new System.Windows.Forms.Button();
-            this.PasteRightButton = new System.Windows.Forms.Button();
-            this.CopyRightButton = new System.Windows.Forms.Button();
             this.Left_RichTB = new System.Windows.Forms.RichTextBox();
-            this.Right_RichTB = new System.Windows.Forms.RichTextBox();
-            this.Bigger_Button = new System.Windows.Forms.Button();
-            this.Smaller_Button = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -60,6 +60,15 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(744, 465);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // Right_RichTB
+            // 
+            this.Right_RichTB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Right_RichTB.Location = new System.Drawing.Point(375, 3);
+            this.Right_RichTB.Name = "Right_RichTB";
+            this.Right_RichTB.Size = new System.Drawing.Size(366, 419);
+            this.Right_RichTB.TabIndex = 2;
+            this.Right_RichTB.Text = "";
             // 
             // tableLayoutPanel2
             // 
@@ -89,85 +98,16 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(738, 34);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // PasteLeftButton
+            // Smaller_Button
             // 
-            this.PasteLeftButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PasteLeftButton.Location = new System.Drawing.Point(95, 3);
-            this.PasteLeftButton.Name = "PasteLeftButton";
-            this.PasteLeftButton.Size = new System.Drawing.Size(86, 28);
-            this.PasteLeftButton.TabIndex = 0;
-            this.PasteLeftButton.Text = "Paste";
-            this.PasteLeftButton.UseVisualStyleBackColor = true;
-            this.PasteLeftButton.Click += new System.EventHandler(this.PasteLeftButton_Click);
-            // 
-            // CopyLeftButton
-            // 
-            this.CopyLeftButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CopyLeftButton.Location = new System.Drawing.Point(3, 3);
-            this.CopyLeftButton.Name = "CopyLeftButton";
-            this.CopyLeftButton.Size = new System.Drawing.Size(86, 28);
-            this.CopyLeftButton.TabIndex = 2;
-            this.CopyLeftButton.Text = "Copy";
-            this.CopyLeftButton.UseVisualStyleBackColor = true;
-            this.CopyLeftButton.Click += new System.EventHandler(this.CopyLeftButton_Click);
-            // 
-            // RefreshLeftButton
-            // 
-            this.RefreshLeftButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RefreshLeftButton.Location = new System.Drawing.Point(187, 3);
-            this.RefreshLeftButton.Name = "RefreshLeftButton";
-            this.RefreshLeftButton.Size = new System.Drawing.Size(86, 28);
-            this.RefreshLeftButton.TabIndex = 4;
-            this.RefreshLeftButton.Text = "Refresh";
-            this.RefreshLeftButton.UseVisualStyleBackColor = true;
-            // 
-            // RefreshRightButton
-            // 
-            this.RefreshRightButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RefreshRightButton.Location = new System.Drawing.Point(463, 3);
-            this.RefreshRightButton.Name = "RefreshRightButton";
-            this.RefreshRightButton.Size = new System.Drawing.Size(86, 28);
-            this.RefreshRightButton.TabIndex = 5;
-            this.RefreshRightButton.Text = "Refresh";
-            this.RefreshRightButton.UseVisualStyleBackColor = true;
-            // 
-            // PasteRightButton
-            // 
-            this.PasteRightButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PasteRightButton.Location = new System.Drawing.Point(555, 3);
-            this.PasteRightButton.Name = "PasteRightButton";
-            this.PasteRightButton.Size = new System.Drawing.Size(86, 28);
-            this.PasteRightButton.TabIndex = 6;
-            this.PasteRightButton.Text = "Paste";
-            this.PasteRightButton.UseVisualStyleBackColor = true;
-            this.PasteRightButton.Click += new System.EventHandler(this.PasteRightButton_Click);
-            // 
-            // CopyRightButton
-            // 
-            this.CopyRightButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CopyRightButton.Location = new System.Drawing.Point(647, 3);
-            this.CopyRightButton.Name = "CopyRightButton";
-            this.CopyRightButton.Size = new System.Drawing.Size(88, 28);
-            this.CopyRightButton.TabIndex = 7;
-            this.CopyRightButton.Text = "Copy";
-            this.CopyRightButton.UseVisualStyleBackColor = true;
-            this.CopyRightButton.Click += new System.EventHandler(this.CopyRightButton_Click);
-            // 
-            // Left_RichTB
-            // 
-            this.Left_RichTB.Location = new System.Drawing.Point(3, 3);
-            this.Left_RichTB.Name = "Left_RichTB";
-            this.Left_RichTB.Size = new System.Drawing.Size(366, 419);
-            this.Left_RichTB.TabIndex = 1;
-            this.Left_RichTB.Text = "";
-            // 
-            // Right_RichTB
-            // 
-            this.Right_RichTB.Location = new System.Drawing.Point(375, 3);
-            this.Right_RichTB.Name = "Right_RichTB";
-            this.Right_RichTB.Size = new System.Drawing.Size(366, 419);
-            this.Right_RichTB.TabIndex = 2;
-            this.Right_RichTB.Text = "";
+            this.Smaller_Button.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Smaller_Button.Location = new System.Drawing.Point(371, 3);
+            this.Smaller_Button.Name = "Smaller_Button";
+            this.Smaller_Button.Size = new System.Drawing.Size(86, 28);
+            this.Smaller_Button.TabIndex = 9;
+            this.Smaller_Button.Text = "--";
+            this.Smaller_Button.UseVisualStyleBackColor = true;
+            this.Smaller_Button.Click += new System.EventHandler(this.Smaller_Button_Click);
             // 
             // Bigger_Button
             // 
@@ -180,16 +120,80 @@
             this.Bigger_Button.UseVisualStyleBackColor = true;
             this.Bigger_Button.Click += new System.EventHandler(this.Bigger_Button_Click);
             // 
-            // Smaller_Button
+            // CopyLeftButton
             // 
-            this.Smaller_Button.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Smaller_Button.Location = new System.Drawing.Point(371, 3);
-            this.Smaller_Button.Name = "Smaller_Button";
-            this.Smaller_Button.Size = new System.Drawing.Size(86, 28);
-            this.Smaller_Button.TabIndex = 9;
-            this.Smaller_Button.Text = "--";
-            this.Smaller_Button.UseVisualStyleBackColor = true;
-            this.Smaller_Button.Click += new System.EventHandler(this.Smaller_Button_Click);
+            this.CopyLeftButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CopyLeftButton.Location = new System.Drawing.Point(3, 3);
+            this.CopyLeftButton.Name = "CopyLeftButton";
+            this.CopyLeftButton.Size = new System.Drawing.Size(86, 28);
+            this.CopyLeftButton.TabIndex = 2;
+            this.CopyLeftButton.Text = "Copy";
+            this.CopyLeftButton.UseVisualStyleBackColor = true;
+            this.CopyLeftButton.Click += new System.EventHandler(this.CopyLeftButton_Click);
+            // 
+            // PasteLeftButton
+            // 
+            this.PasteLeftButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PasteLeftButton.Location = new System.Drawing.Point(95, 3);
+            this.PasteLeftButton.Name = "PasteLeftButton";
+            this.PasteLeftButton.Size = new System.Drawing.Size(86, 28);
+            this.PasteLeftButton.TabIndex = 0;
+            this.PasteLeftButton.Text = "Paste";
+            this.PasteLeftButton.UseVisualStyleBackColor = true;
+            this.PasteLeftButton.Click += new System.EventHandler(this.PasteLeftButton_Click);
+            // 
+            // CopyRightButton
+            // 
+            this.CopyRightButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CopyRightButton.Location = new System.Drawing.Point(647, 3);
+            this.CopyRightButton.Name = "CopyRightButton";
+            this.CopyRightButton.Size = new System.Drawing.Size(88, 28);
+            this.CopyRightButton.TabIndex = 7;
+            this.CopyRightButton.Text = "Copy";
+            this.CopyRightButton.UseVisualStyleBackColor = true;
+            this.CopyRightButton.Click += new System.EventHandler(this.CopyRightButton_Click);
+            // 
+            // PasteRightButton
+            // 
+            this.PasteRightButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PasteRightButton.Location = new System.Drawing.Point(555, 3);
+            this.PasteRightButton.Name = "PasteRightButton";
+            this.PasteRightButton.Size = new System.Drawing.Size(86, 28);
+            this.PasteRightButton.TabIndex = 6;
+            this.PasteRightButton.Text = "Paste";
+            this.PasteRightButton.UseVisualStyleBackColor = true;
+            this.PasteRightButton.Click += new System.EventHandler(this.PasteRightButton_Click);
+            // 
+            // RefreshLeftButton
+            // 
+            this.RefreshLeftButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RefreshLeftButton.Location = new System.Drawing.Point(187, 3);
+            this.RefreshLeftButton.Name = "RefreshLeftButton";
+            this.RefreshLeftButton.Size = new System.Drawing.Size(86, 28);
+            this.RefreshLeftButton.TabIndex = 4;
+            this.RefreshLeftButton.Text = ">>";
+            this.RefreshLeftButton.UseVisualStyleBackColor = true;
+            this.RefreshLeftButton.Click += new System.EventHandler(this.RefreshLeftButton_Click);
+            // 
+            // RefreshRightButton
+            // 
+            this.RefreshRightButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RefreshRightButton.Location = new System.Drawing.Point(463, 3);
+            this.RefreshRightButton.Name = "RefreshRightButton";
+            this.RefreshRightButton.Size = new System.Drawing.Size(86, 28);
+            this.RefreshRightButton.TabIndex = 5;
+            this.RefreshRightButton.Text = "<<";
+            this.RefreshRightButton.UseVisualStyleBackColor = true;
+            this.RefreshRightButton.Click += new System.EventHandler(this.RefreshRightButton_Click);
+            // 
+            // Left_RichTB
+            // 
+            this.Left_RichTB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Left_RichTB.Location = new System.Drawing.Point(3, 3);
+            this.Left_RichTB.Name = "Left_RichTB";
+            this.Left_RichTB.Size = new System.Drawing.Size(366, 419);
+            this.Left_RichTB.TabIndex = 1;
+            this.Left_RichTB.Text = "";
             // 
             // Form1
             // 
