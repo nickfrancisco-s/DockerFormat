@@ -39,8 +39,15 @@ namespace DockerFormat
             get { return m_isValid; }
             set { m_isValid = value; }
         }
-        
 
+        private Dictionary<string,System.Drawing.Color> m_Prefixes;
+
+        public Dictionary<string,System.Drawing.Color> Prefixes
+        {
+            get { return m_Prefixes; }
+            set { m_Prefixes = value; }
+        }
+        
                
 
         public Vocab(string JSonPath)
@@ -51,7 +58,7 @@ namespace DockerFormat
             //bold it in for now, but later make a JSON ting.
            
             Keywords = new DockerTypes(JSonPath);
-            
+            m_Prefixes = new Dictionary<string, System.Drawing.Color>();
            
             m_isValid = Keywords.IsValid;
                 
@@ -77,13 +84,26 @@ namespace DockerFormat
                     ThisOne.Name = Name;
                     ThisOne.Help = Help;
                     ThisOne.Type = FamilyName;
-                    if(!Items.ContainsKey(Name))
-                    {                    
-                        Items.Add(Name,ThisOne);
+                    if (!m_Items.ContainsKey(Name))
+                    {
+                        m_Items.Add(Name, ThisOne);
                     }
-                }
-                
-            }            
+
+                    if (ThisOne.Type == "Prefixes")
+                    {
+                        if (!m_Prefixes.ContainsKey(Name))
+                        {
+                            m_Prefixes.Add(Name, FamilyColor);
+                        }
+                    }
+
+                }                
+            }
+
+            foreach (KeyValuePair<string, DockerFormat.Item> Df in m_Items)
+            {
+               
+            }
 
         }
 

@@ -1,340 +1,281 @@
 ﻿{
-	"Types": [{
-		"Type": "DockerCmds",
-		"Color": "Blue",
-		"defs": [{
-				"Name": "attach",
-				"Help": "Attach local standard input outputand error streams to a running container"
-			},
-			{
-				"Name": "build",
-				"Help": "Build an image from a Dockerfile"
-			},
-			{
-				"Name": "builder",
-				"Help": "Manage builds"
-			},
-			{
-				"Name": "checkpoint",
-				"Help": "Manage checkpoints"
-			},
-			{
-				"Name": "commit",
-				"Help": "Create a new image from a container’s changes"
-			},
-			{
-				"Name": "config",
-				"Help": "Manage Docker configs"
-			},
-			{
-				"Name": "container",
-				"Help": "Manage containers"
-			},
-			{
-				"Name": "context",
-				"Help": "Manage contexts"
-			},
-			{
-				"Name": "cp",
-				"Help": "Copy files/folders between a container and the local filesystem"
-			},
-			{
-				"Name": "create",
-				"Help": "Create a new container"
-			},
-			{
-				"Name": "deploy",
-				"Help": "Deploy a new stack or update an existing stack"
-			},
-			{
-				"Name": "docker",
-				"Help": "Prefixes all commands"
-			},
-			{
-				"Name": "diff",
-				"Help": "Inspect changes to files or directories on a container’s filesystem"
-			},
-			{
-				"Name": "engine",
-				"Help": "Manage the docker engine"
-			},
-			{
-				"Name": "events",
-				"Help": "Get real time events from the server"
-			},
-			{
-				"Name": "exec",
-				"Help": "Run a command in a running container"
-			},
-			{
-				"Name": "export",
-				"Help": "Export a container’s filesystem as a tar archive"
-			},
-			{
-				"Name": "history",
-				"Help": "Show the history of an image"
-			},
-			{
-				"Name": "image",
-				"Help": "Manage images"
-			},
-			{
-				"Name": "images",
-				"Help": "List images"
-			},
-			{
-				"Name": "import",
-				"Help": "Import the contents from a tarball to create a filesystem image"
-			},
-			{
-				"Name": "info",
-				"Help": "Display system-wide information"
-			},
-			{
-				"Name": "inspect",
-				"Help": "Return low-level information on Docker objects"
-			},
-			{
-				"Name": "kill",
-				"Help": "Kill one or more running containers"
-			},
-			{
-				"Name": "load",
-				"Help": "Load an image from a tar archive or STDIN"
-			},
-			{
-				"Name": "login",
-				"Help": "Log in to a Docker registry"
-			},
-			{
-				"Name": "logout",
-				"Help": "Log out from a Docker registry"
-			},
-			{
-				"Name": "logs",
-				"Help": "Fetch the logs of a container"
-			},
-			{
-				"Name": "manifest",
-				"Help": "Manage Docker image manifests and manifest lists"
-			},
-			{
-				"Name": "network",
-				"Help": "Manage networks"
-			},
-			{
-				"Name": "node",
-				"Help": "Manage Swarm nodes"
-			},
-			{
-				"Name": "pause",
-				"Help": "Pause all processes within one or more containers"
-			},
-			{
-				"Name": "plugin",
-				"Help": "Manage plugins"
-			},
-			{
-				"Name": "port",
-				"Help": "List port mappings or a specific mapping for the container"
-			},
-			{
-				"Name": "ps",
-				"Help": "List containers"
-			},
-			{
-				"Name": "pull",
-				"Help": "Pull an image or a repository from a registry"
-			},
-			{
-				"Name": "push",
-				"Help": "Push an image or a repository to a registry"
-			},
-			{
-				"Name": "rename",
-				"Help": "Rename a container"
-			},
-			{
-				"Name": "restart",
-				"Help": "Restart one or more containers"
-			},
-			{
-				"Name": "rm",
-				"Help": "Remove one or more containers"
-			},
-			{
-				"Name": "rmi",
-				"Help": "Remove one or more images"
-			},
-			{
-				"Name": "run",
-				"Help": "Run a command in a new container"
-			},
-			{
-				"Name": "save",
-				"Help": "Save one or more images to a tar archive (streamed to STDOUT by default)"
-			},
-			{
-				"Name": "search",
-				"Help": "Search the Docker Hub for images"
-			},
-			{
-				"Name": "secret",
-				"Help": "Manage Docker secrets"
-			},
-			{
-				"Name": "service",
-				"Help": "Manage services"
-			},
-			{
-				"Name": "stack",
-				"Help": "Manage Docker stacks"
-			},
-			{
-				"Name": "start",
-				"Help": "Start one or more stopped containers"
-			},
-			{
-				"Name": "stats",
-				"Help": "Display a live stream of container(s) resource usage statistics"
-			},
-			{
-				"Name": "stop",
-				"Help": "Stop one or more running containers"
-			},
-			{
-				"Name": "swarm",
-				"Help": "Manage Swarm"
-			},
-			{
-				"Name": "system",
-				"Help": "Manage Docker"
-			},
-			{
-				"Name": "tag",
-				"Help": "Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE"
-			},
-			{
-				"Name": "top",
-				"Help": "Display the running processes of a container"
-			},
-			{
-				"Name": "trust",
-				"Help": "Manage trust on Docker images"
-			},
-			{
-				"Name": "unpause",
-				"Help": "Unpause all processes within one or more containers"
-			},
-			{
-				"Name": "update",
-				"Help": "Update configuration of one or more containers"
-			},
-			{
-				"Name": "version",
-				"Help": "Show the Docker version information"
-			},
-			{
-				"Name": "volume",
-				"Help": "Manage volumes"
-			},
-			{
-				"Name": "wait",
-				"Help": "Block until one or more containers stop then print their exit codes"
-			}
-		]
-	}, {
-		"Type": "Operators",
-		"Color": "Green",
-		"defs": [{
-				"Name": "+",
-				"Help": "Add"
-			},
-			{
-				"Name": "-",
-				"Help": "Minus"
-			},
-			{
-				"Name": "--",
-				"Help": "Docker Tag"
-			},
-			{
-				"Name": "/",
-				"Help": "/"
-			},
-			{
-				"Name": "*",
-				"Help": "Mult"
-			},
-			{
-				"Name": "`",
-				"Help": "Backtick"
-			},
-			{
-				"Name": "=",
-				"Help": "equal"
-			}
-		]
-	}, {
-		"Type": "Bash",
-		"Color": "Orange",
-		"defs": [{
-				"Name": "|",
-				"Help": "Pipe to "
-			},
-			{
-				"Name": "$",
-				"Help": "Bash Variable"
-			},
-			{
-				"Name": "-v",
-				"Help": "Print to variable"
-			},
-			{
-				"Name": "-a",
-				"Help": "/"
-			},
-			{
-				"Name": "-e",
-				"Help": "echo -e enable interpretation of backslash escapes"
-			},
-			{
-				"Name": "'",
-				"Help": "Single Quote"
-			},
-			{
-				"Name": "\"",
-				"Help": "double quote"
-			},
-			{
-				"Name": "if",
-				"Help": ""
-			},
-			{
-				"Name": "then",
-				"Help": ""
-			},
-			{
-				"Name": "elif",
-				"Help": ""
-			},
-			{
-				"Name": "else",
-				"Help": ""
-			},
-			{
-				"Name": "fi",
-				"Help": ""
-			},
-			{
-				"Name": "exit",
-				"Help": ""
-			},
-			{
-				"Name": "#",
-				"Help": ""
-			}
-		]
-	}]
+    "Types": [{
+            "Type": "DockerCmds",
+            "Color": "Blue",
+            "defs": [{
+                    "Name": "attach",
+                    "Help": "Attach local standard input outputand error streams to a running container"
+                }, {
+                    "Name": "build",
+                    "Help": "Build an image from a Dockerfile"
+                }, {
+                    "Name": "builder",
+                    "Help": "Manage builds"
+                }, {
+                    "Name": "checkpoint",
+                    "Help": "Manage checkpoints"
+                }, {
+                    "Name": "commit",
+                    "Help": "Create a new image from a container’s changes"
+                }, {
+                    "Name": "config",
+                    "Help": "Manage Docker configs"
+                }, {
+                    "Name": "container",
+                    "Help": "Manage containers"
+                }, {
+                    "Name": "context",
+                    "Help": "Manage contexts"
+                }, {
+                    "Name": "cp",
+                    "Help": "Copy files/folders between a container and the local filesystem"
+                }, {
+                    "Name": "create",
+                    "Help": "Create a new container"
+                }, {
+                    "Name": "deploy",
+                    "Help": "Deploy a new stack or update an existing stack"
+                }, {
+                    "Name": "docker",
+                    "Help": "Prefixes all commands"
+                }, {
+                    "Name": "diff",
+                    "Help": "Inspect changes to files or directories on a container’s filesystem"
+                }, {
+                    "Name": "engine",
+                    "Help": "Manage the docker engine"
+                }, {
+                    "Name": "events",
+                    "Help": "Get real time events from the server"
+                }, {
+                    "Name": "exec",
+                    "Help": "Run a command in a running container"
+                }, {
+                    "Name": "export",
+                    "Help": "Export a container’s filesystem as a tar archive"
+                }, {
+                    "Name": "history",
+                    "Help": "Show the history of an image"
+                }, {
+                    "Name": "image",
+                    "Help": "Manage images"
+                }, {
+                    "Name": "images",
+                    "Help": "List images"
+                }, {
+                    "Name": "import",
+                    "Help": "Import the contents from a tarball to create a filesystem image"
+                }, {
+                    "Name": "info",
+                    "Help": "Display system-wide information"
+                }, {
+                    "Name": "inspect",
+                    "Help": "Return low-level information on Docker objects"
+                }, {
+                    "Name": "kill",
+                    "Help": "Kill one or more running containers"
+                }, {
+                    "Name": "load",
+                    "Help": "Load an image from a tar archive or STDIN"
+                }, {
+                    "Name": "login",
+                    "Help": "Log in to a Docker registry"
+                }, {
+                    "Name": "logout",
+                    "Help": "Log out from a Docker registry"
+                }, {
+                    "Name": "logs",
+                    "Help": "Fetch the logs of a container"
+                }, {
+                    "Name": "manifest",
+                    "Help": "Manage Docker image manifests and manifest lists"
+                }, {
+                    "Name": "network",
+                    "Help": "Manage networks"
+                }, {
+                    "Name": "node",
+                    "Help": "Manage Swarm nodes"
+                }, {
+                    "Name": "pause",
+                    "Help": "Pause all processes within one or more containers"
+                }, {
+                    "Name": "plugin",
+                    "Help": "Manage plugins"
+                }, {
+                    "Name": "port",
+                    "Help": "List port mappings or a specific mapping for the container"
+                }, {
+                    "Name": "ps",
+                    "Help": "List containers"
+                }, {
+                    "Name": "pull",
+                    "Help": "Pull an image or a repository from a registry"
+                }, {
+                    "Name": "push",
+                    "Help": "Push an image or a repository to a registry"
+                }, {
+                    "Name": "rename",
+                    "Help": "Rename a container"
+                }, {
+                    "Name": "restart",
+                    "Help": "Restart one or more containers"
+                }, {
+                    "Name": "rm",
+                    "Help": "Remove one or more containers"
+                }, {
+                    "Name": "rmi",
+                    "Help": "Remove one or more images"
+                }, {
+                    "Name": "run",
+                    "Help": "Run a command in a new container"
+                }, {
+                    "Name": "save",
+                    "Help": "Save one or more images to a tar archive (streamed to STDOUT by default)"
+                }, {
+                    "Name": "search",
+                    "Help": "Search the Docker Hub for images"
+                }, {
+                    "Name": "secret",
+                    "Help": "Manage Docker secrets"
+                }, {
+                    "Name": "service",
+                    "Help": "Manage services"
+                }, {
+                    "Name": "stack",
+                    "Help": "Manage Docker stacks"
+                }, {
+                    "Name": "start",
+                    "Help": "Start one or more stopped containers"
+                }, {
+                    "Name": "stats",
+                    "Help": "Display a live stream of container(s) resource usage statistics"
+                }, {
+                    "Name": "stop",
+                    "Help": "Stop one or more running containers"
+                }, {
+                    "Name": "swarm",
+                    "Help": "Manage Swarm"
+                }, {
+                    "Name": "system",
+                    "Help": "Manage Docker"
+                }, {
+                    "Name": "tag",
+                    "Help": "Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE"
+                }, {
+                    "Name": "top",
+                    "Help": "Display the running processes of a container"
+                }, {
+                    "Name": "trust",
+                    "Help": "Manage trust on Docker images"
+                }, {
+                    "Name": "unpause",
+                    "Help": "Unpause all processes within one or more containers"
+                }, {
+                    "Name": "update",
+                    "Help": "Update configuration of one or more containers"
+                }, {
+                    "Name": "version",
+                    "Help": "Show the Docker version information"
+                }, {
+                    "Name": "volume",
+                    "Help": "Manage volumes"
+                }, {
+                    "Name": "wait",
+                    "Help": "Block until one or more containers stop then print their exit codes"
+                }
+            ]
+        }, {
+            "Type": "Operators",
+            "Color": "Green",
+            "defs": [{
+                    "Name": "+",
+                    "Help": "Add"
+                }, {
+                    "Name": "-",
+                    "Help": "Minus"
+                },{
+                    "Name": "/",
+                    "Help": "/"
+                }, {
+                    "Name": "*",
+                    "Help": "Mult"
+                }, {
+                    "Name": "`",
+                    "Help": "Backtick"
+                }, {
+                    "Name": "=",
+                    "Help": "equal"
+                }
+            ]
+        },{
+            "Type": "Prefixes",
+            "Color": "purple",
+            "defs": [{
+                    "Name": "\"",
+                    "Help": "inverted comms"
+                }, {
+                    "Name": "--",
+                    "Help": "Docker Tag"
+                }, {
+                    "Name": "'",
+                    "Help": "single quote"
+                },{
+                    "Name": "#",
+                    "Help": "bash comment"
+                },
+				{
+                    "Name": "$",
+                    "Help": "bash variable"
+                }
+            ]
+        }, {
+            "Type": "Bash",
+            "Color": "Orange",
+            "defs": [{
+                    "Name": "|",
+                    "Help": "Pipe to "
+                }, {
+                    "Name": "$",
+                    "Help": "Bash Variable"
+                }, {
+                    "Name": "-v",
+                    "Help": "Print to variable"
+                }, {
+                    "Name": "-a",
+                    "Help": "/"
+                }, {
+                    "Name": "-e",
+                    "Help": "echo -e enable interpretation of backslash escapes"
+                }, {
+                    "Name": "'",
+                    "Help": "Single Quote"
+                }, {
+                    "Name": "\"",
+                    "Help": "double quote"
+                }, {
+                    "Name": "if",
+                    "Help": ""
+                }, {
+                    "Name": "then",
+                    "Help": ""
+                }, {
+                    "Name": "elif",
+                    "Help": ""
+                }, {
+                    "Name": "else",
+                    "Help": ""
+                }, {
+                    "Name": "fi",
+                    "Help": ""
+                }, {
+                    "Name": "exit",
+                    "Help": ""
+                }, {
+                    "Name": "#",
+                    "Help": ""
+                }
+            ]
+        }
+    ]
 
 }

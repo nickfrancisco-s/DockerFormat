@@ -21,7 +21,7 @@ namespace DockerFormat
         public Form1()
         {
             InitializeComponent();            
-            FontSize = PasteLeftButton.Font.Size;
+            FontSize = PasteLeftButton.Font.Size + 2;
             initVocab();
         }
                
@@ -44,18 +44,34 @@ namespace DockerFormat
 
         private void PasteRightButton_Click(object sender, EventArgs e)
         {
+            PasteRight();
+        }
+
+
+        private void PasteLeft() 
+        {            
+            Left_RichTB.Clear();
+            FormatRichText(ref Left_RichTB, Clipboard.GetText(), false);
+        }
+
+        private void PasteRight()
+        {
             Right_RichTB.Clear();
-            FormatRichText(ref Right_RichTB, Clipboard.GetText(),true);
+            FormatRichText(ref Right_RichTB, Clipboard.GetText(), true);
         }
 
         private void Bigger_Button_Click(object sender, EventArgs e)
         {
             FontSize++;
+            PasteLeft();
+            PasteRight();
         }
 
         private void Smaller_Button_Click(object sender, EventArgs e)
         {
             FontSize--;
+            PasteLeft();
+            PasteRight();
         }
        
 
@@ -65,14 +81,41 @@ namespace DockerFormat
             DockerSyntax = new Vocab(DaLingPath);           
         }
 
+        private System.Drawing.Color ApplyFormatting(string Token, Vocab TheSyntax) 
+        {
+            Color DaCol = Color.Black;
+
+            //Global Replace
+            if (TheSyntax.Items.ContainsKey(Token))
+            {
+                //we do a ting then apply
+                DaCol = DockerSyntax.Items[Token].Color;                               
+            }
+
+            //prefixes
+           foreach(KeyValuePair<string,Color> kvp in TheSyntax.Prefixes  )
+           {
+               int Len = kvp.Key.Length;
+               if (Token.Length > Len) 
+               {
+                   if ((Token.Substring(0, Len)) == kvp.Key) 
+                   { 
+                     // Do the whole token
+                       DaCol = kvp.Value;
+                       break; //We foudn summat, no need to ncontinues
+                   }
+               }
+           }
+
+            return DaCol;
+        }
         private int FormatRichText(ref RichTextBox targetObject, string Text, bool SingleLines) 
         {
             int ret = 0;
             string Raw;           
             int CountSinceLastPair = 0;
             bool StartCounting = false;
-
-            targetObject.Text = Text;
+                        
             targetObject.Font = new Font(targetObject.Font.FontFamily, FontSize);
 
             //ensure we only got single spaces
@@ -83,7 +126,7 @@ namespace DockerFormat
             Tokens.AddRange(Raw.Split(' ').ToList());
 
             //                      
-            int Max = Tokens.Count() - 1;
+            int Max = Tokens.Count();
             int cnt= 0;
 
             //TODO apply formatting
@@ -99,17 +142,9 @@ namespace DockerFormat
                     CountSinceLastPair++;
                 }
 
-                if (DockerSyntax.Items.ContainsKey(Tok)) 
-                { 
-                    //we do a ting then apply
-                    DaColor = DockerSyntax.Items[Tok].Color;
+                //global keywork replacements                
+                DaColor = ApplyFormatting(Tok, DockerSyntax);
 
-                     //check if bash Variable
-                }
-                else 
-                {
-                    
-                }
 
                 //Check if uppercase :
 
