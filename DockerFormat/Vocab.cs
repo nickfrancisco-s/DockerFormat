@@ -89,7 +89,23 @@ namespace DockerFormat
                         m_Items.Add(Name, ThisOne);
                     }
 
-                    if (ThisOne.Type == "Prefixes")
+                    if (ThisOne.Type == "Docker_Tags")
+                    {
+                        if (!m_Prefixes.ContainsKey(Name))
+                        {
+                            m_Prefixes.Add(Name, FamilyColor);
+                        }
+                    }
+
+                    if (ThisOne.Type == "Comments")
+                    {
+                        if (!m_Prefixes.ContainsKey(Name))
+                        {
+                            m_Prefixes.Add(Name, FamilyColor);
+                        }
+                    }
+
+                    if (ThisOne.Type == "Variables")
                     {
                         if (!m_Prefixes.ContainsKey(Name))
                         {

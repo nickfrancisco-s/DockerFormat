@@ -16,15 +16,15 @@ namespace DockerFormat
     {
         static float FontSize;
         Vocab DockerSyntax;
-              
+        string ClipboardCopy;
 
         public Form1()
         {
             InitializeComponent();            
             FontSize = PasteLeftButton.Font.Size + 2;
+            ClipboardCopy = Clipboard.GetText(); //bakup what we had
             initVocab();
         }
-               
 
         private void PasteLeftButton_Click(object sender, EventArgs e)
         {
@@ -32,14 +32,35 @@ namespace DockerFormat
             FormatRichText(ref Left_RichTB, Clipboard.GetText(),false);
         }
 
+        private void CopyRight() 
+        {           
+            //we dont wanna replace the clipboard with nowts
+            if (Right_RichTB.Text == "") 
+            {
+                return;
+            }
+
+            Clipboard.SetData(DataFormats.Text, (Object)(Right_RichTB.Text));
+        }
+
+        private void CopyLeft() 
+        {
+            if (Left_RichTB.Text == "")
+            {
+                return;
+            }
+
+            Clipboard.SetData(DataFormats.Text, (Object)Left_RichTB.Text);
+        }
+
         private void CopyLeftButton_Click(object sender, EventArgs e)
         {
-            Clipboard.SetData(DataFormats.Text, (Object)Left_RichTB.Text);
+            CopyLeft();
         }
 
         private void CopyRightButton_Click(object sender, EventArgs e)
         {
-            Clipboard.SetData(DataFormats.Text, (Object)Right_RichTB.Text);
+            CopyRight();
         }
 
         private void PasteRightButton_Click(object sender, EventArgs e)
@@ -81,7 +102,7 @@ namespace DockerFormat
             DockerSyntax = new Vocab(DaLingPath);           
         }
 
-        private System.Drawing.Color ApplyFormatting(string Token, Vocab TheSyntax) 
+        private System.Drawing.Color ApplyFormatting(ref string Token, Vocab TheSyntax , bool AllowNewLines) 
         {
             Color DaCol = Color.Black;
 
@@ -102,6 +123,16 @@ namespace DockerFormat
                    { 
                      // Do the whole token
                        DaCol = kvp.Value;
+
+                       //silly rules
+                       if (kvp.Key == "--") 
+                       {
+                           if (AllowNewLines)
+                           {
+                               Token = "\r\n" + Token;
+                           }
+                       }
+
                        break; //We foudn summat, no need to ncontinues
                    }
                }
@@ -109,7 +140,7 @@ namespace DockerFormat
 
             return DaCol;
         }
-        private int FormatRichText(ref RichTextBox targetObject, string Text, bool SingleLines) 
+        private int FormatRichText(ref RichTextBox targetObject, string Text, bool IndividualLines) 
         {
             int ret = 0;
             string Raw;           
@@ -117,6 +148,7 @@ namespace DockerFormat
             bool StartCounting = false;
                         
             targetObject.Font = new Font(targetObject.Font.FontFamily, FontSize);
+            targetObject.Clear();
 
             //ensure we only got single spaces
             Raw = Text.Replace("  ", " ");
@@ -136,28 +168,84 @@ namespace DockerFormat
                 bool Bold = false;
                 cnt++;
                 System.Drawing.Color DaColor = Color.Black;
+                string TokCopy = Tok;
 
                 if (StartCounting)
                 {
                     CountSinceLastPair++;
                 }
 
-                //global keywork replacements                
-                DaColor = ApplyFormatting(Tok, DockerSyntax);
+                //we replace incoming \r\ns anyway...
+                TokCopy = Tok.Replace("\r\n", "");
+                TokCopy = TokCopy.Replace("\r", "");
+                TokCopy = TokCopy.Replace("\n", "");
 
+                //global keywork replacements                
+                DaColor = ApplyFormatting(ref TokCopy, DockerSyntax, IndividualLines);
+
+              
 
                 //Check if uppercase :
 
+                //CHeck for substring ,in token sply by an equall
+
+                List<string> SubTokens = new List<string>();
+                List<string> splitters = new List<string>();
+                char[] spearator = { '=', ',' };
+                string workCopy = TokCopy;
+                int dk = 0;
+                SubTokens = TokCopy.Split(spearator).ToList();                
                
+
+               // SubTokens.AddRange(Tok.Split('=').ToList());
+
                 //append to the box
-                targetObject.AppendText(Tok, DaColor);
+                if (SubTokens.Count > 1) 
+                {
+                    int daC = -1;
+                    
+                    foreach (string s in SubTokens)
+                    {
+                        dk++;
+                        if (dk == SubTokens.Count) 
+                        {
+                            break; // last one no separator
+                        }
+
+                        workCopy = workCopy.Substring(s.Length, workCopy.Length - s.Length);
+                        string sep = workCopy.Substring(0, 1);
+                        splitters.Add(sep);
+
+                        //remove the separator
+                        workCopy = workCopy.Substring(1, workCopy.Length - 1);
+                    }
+
+                    //we have all the sub tokens and we have the separators
+                    foreach (string s in SubTokens)
+                    {
+                        daC++;
+                        string s_copy = s;
+                        DaColor = ApplyFormatting(ref s_copy, DockerSyntax, IndividualLines);
+                        targetObject.AppendText( s_copy, DaColor);
+                        if (daC < splitters.Count) // LAst case
+                        {
+                            targetObject.AppendText(splitters[daC], System.Drawing.Color.Brown);
+                        }
+                    }
+                }
+                else
+                {
+                    //jsut the one token
+                    targetObject.AppendText(TokCopy, DaColor);
+                }
+                
 
                 //Carraige returns
-                if (SingleLines) 
+                if (IndividualLines) 
                 {
-                    if (Tok.Length > 2)
+                    if (TokCopy.Length > 2)
                     {
-                        if (Tok.Substring(0, 2) == "--")
+                        if (TokCopy.Substring(0, 2) == "--")
                         {                           
                             StartCounting = true;
                         }
@@ -168,7 +256,7 @@ namespace DockerFormat
                 {
                     targetObject.AppendText(" ");
                   
-                    if (SingleLines) 
+                    if (IndividualLines) 
                     {
                         if (CountSinceLastPair==1) 
                         {
@@ -187,12 +275,61 @@ namespace DockerFormat
 
         private void RefreshRightButton_Click(object sender, EventArgs e)
         {
+            PushToLeft();
+        }
 
+        private void PushToLeft() 
+        {
+            if (Right_RichTB.Text == "") //iGNORE BLANK INFO
+            {
+                return;
+            }
+            //copy what is on right and paste on left   
+            try
+            {
+                Clipboard.SetText(Right_RichTB.Text);
+                FormatRichText(ref Left_RichTB, Clipboard.GetText(), false);
+            }
+            catch 
+            {
+                MessageBox.Show("Error Accessing Clipboard, try again!");
+            }
+
+        }
+
+        private void PushToRight() 
+        {
+            if (Left_RichTB.Text == "")
+            {
+                return;
+            }
+            //copy what on left and past on right
+            //Clipboard.SetData(DataFormats.Text, (Object)(Left_RichTB.Text));
+            try { 
+                Clipboard.SetText(Left_RichTB.Text);
+                FormatRichText(ref Right_RichTB, Clipboard.GetText(), true  );
+            }
+            catch
+            {
+                MessageBox.Show("Error Accessing Clipboard, try again");
+            }
         }
 
         private void RefreshLeftButton_Click(object sender, EventArgs e)
         {
             //Breaks the text to lines then spits it out
+            PushToRight();
+        }
+
+        private void RestoreClipboard()
+        {
+            MessageBox.Show("Restored original Clipboard contents");
+            Clipboard.SetData(DataFormats.Text, ClipboardCopy);
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            RestoreClipboard();
         }
 
        

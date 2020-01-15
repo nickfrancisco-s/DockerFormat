@@ -144,6 +144,9 @@
                     "Name": "stack",
                     "Help": "Manage Docker stacks"
                 }, {
+                    "Name": "source",
+                    "Help": "the Source of a Mounted volume"
+                }, {
                     "Name": "start",
                     "Help": "Start one or more stopped containers"
                 }, {
@@ -161,12 +164,18 @@
                 }, {
                     "Name": "tag",
                     "Help": "Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE"
+                },{
+                    "Name": "target",
+                    "Help": "the target folder of a mounted volume"
                 }, {
                     "Name": "top",
                     "Help": "Display the running processes of a container"
                 }, {
                     "Name": "trust",
                     "Help": "Manage trust on Docker images"
+                },{
+                    "Name": "type",
+                    "Help": "A tag type"
                 }, {
                     "Name": "unpause",
                     "Help": "Unpause all processes within one or more containers"
@@ -208,7 +217,7 @@
                 }
             ]
         },{
-            "Type": "Prefixes",
+            "Type": "Docker_Tags",
             "Color": "purple",
             "defs": [{
                     "Name": "\"",
@@ -219,24 +228,42 @@
                 }, {
                     "Name": "'",
                     "Help": "single quote"
+                }
+            ]
+        },
+		{
+            "Type": "Comments",
+            "Color": "green",
+            "defs": [{
+                    "Name": "//",
+                    "Help": "forward slash comment"
+                }, {
+                    "Name": "#",
+                    "Help": "Docker comment"
+                }, {
+                    "Name": "'",
+                    "Help": "single quote"
                 },{
                     "Name": "#",
                     "Help": "bash comment"
-                },
+                }
+            ]
+        },{
+            "Type": "Variables",
+            "Color": "Orange",
+            "defs": [
 				{
                     "Name": "$",
                     "Help": "bash variable"
                 }
             ]
-        }, {
+        },
+		{
             "Type": "Bash",
             "Color": "Orange",
             "defs": [{
                     "Name": "|",
                     "Help": "Pipe to "
-                }, {
-                    "Name": "$",
-                    "Help": "Bash Variable"
                 }, {
                     "Name": "-v",
                     "Help": "Print to variable"

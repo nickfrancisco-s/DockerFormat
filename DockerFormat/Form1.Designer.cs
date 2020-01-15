@@ -105,7 +105,7 @@
             this.Smaller_Button.Name = "Smaller_Button";
             this.Smaller_Button.Size = new System.Drawing.Size(86, 28);
             this.Smaller_Button.TabIndex = 9;
-            this.Smaller_Button.Text = "--";
+            this.Smaller_Button.Text = "Font--";
             this.Smaller_Button.UseVisualStyleBackColor = true;
             this.Smaller_Button.Click += new System.EventHandler(this.Smaller_Button_Click);
             // 
@@ -116,7 +116,7 @@
             this.Bigger_Button.Name = "Bigger_Button";
             this.Bigger_Button.Size = new System.Drawing.Size(86, 28);
             this.Bigger_Button.TabIndex = 8;
-            this.Bigger_Button.Text = "++";
+            this.Bigger_Button.Text = "Font++";
             this.Bigger_Button.UseVisualStyleBackColor = true;
             this.Bigger_Button.Click += new System.EventHandler(this.Bigger_Button_Click);
             // 
@@ -203,6 +203,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Form1";
             this.Text = "DockerFormat";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
